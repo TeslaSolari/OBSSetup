@@ -2,6 +2,7 @@
 # Scriptacular - install.sh
 # Copyright 2013 Christopher Simpkins
 # MIT License
+#
 
 TARGET_DIR="path/to/the/install/directory"
 INSTALL_FILE="your-file.txt"
