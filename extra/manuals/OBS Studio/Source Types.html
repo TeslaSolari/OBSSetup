@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Open Broadcaster Software | Wiki</title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta name="description" content="Open Broadcaster Software is free and open source software for video recording and live streaming. Stream to Twitch, YouTube and many other providers or record your own videos with high quality H264 / AAC encoding.">
+  <meta name="keywords" content="OBS,OBS Studio,Stream,Video,Live Streaming,Recording,Games,Twitch,YouTube,Livestream,Open Broadcaster Software">
+
+  <link rel="stylesheet" href="Source%20Types_files/light.css">  
+  <link rel="icon" type="image/png" sizes="32x32" href="https://obsproject.com/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="https://obsproject.com/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://obsproject.com/favicon-16x16.png">
+</head>
+
+<body class="scheme_white ">
+
+<div id="wrapper">
+
+<header id="header" class="cf">
+	<a class="logo" href="https://obsproject.com/">
+	  <img src="Source%20Types_files/new_icon_small.png" alt="Open Broadcaster Software">
+	</a>
+
+	<div class="header_title">
+		Open Broadcaster Software
+	</div>
+
+	<div id="SocialButtons">
+				
+		<div id="DiscordButton">
+			<a href="https://discord.gg/obsproject" target="_blank" aria-label="OBS Discord">
+				<img src="Source%20Types_files/Discord.svg" class="icon-discord">
+			</a>
+			<span class="tooltip">Discord</span>
+		</div>
+
+		<div id="TwitterButton">
+			<a href="https://twitter.com/OBSProject" target="_blank" aria-label="OBS Twitter">
+				<i class="icon-twitter"></i>
+			</a>
+			<span class="tooltip">Twitter</span>
+		</div>
+
+		<div id="BlogButton">
+			<a href="https://obsproject.com/blog">
+				<i class="icon-blog">Blog</i>
+			</a>
+		</div>
+		
+		<div id="LivechatButton">
+			<a href="https://obsproject.com/chat" target="_blank">
+				<i class="icon-comment">Community Chat</i>
+			</a>
+		</div>
+		
+		
+		<div id="DonateButton">
+			<a href="https://obsproject.com/donate">
+				<i class="icon-coin">Donate</i>
+			</a>
+		</div>
+			
+	</div>
+
+	<nav>
+
+  <ul class="menu cf">
+        <li>
+	        <a class="active" href="https://obsproject.com/">Home</a>
+	  
+	
+    </li>
+        <li>
+	        <a href="https://obsproject.com/download">Download</a>
+	  
+	
+    </li>
+        <li>
+	        <a href="https://obsproject.com/help">Help</a>
+	  
+	
+    </li>
+        <li>
+	        <a href="https://obsproject.com/forum/">Forum</a>
+	  
+	
+    </li>
+      </ul>
+
+</nav>
+
+</header>
+
+  <div class="container_12 default_container wiki_container">
+  
+	<div class="headerpusher"></div>
+
+	<div class="grid_12 wiki_header">
+		<h1>Sources Guide</h1>
+	</div>
+	
+    <div class="grid_9 wiki_content">
+		<p>Table of Contents</p>
+<ul>
+<li><a href="#scenes-and-sources-overview">Scenes and Sources Overview</a></li>
+<li><a href="#source-descriptions">Source Descriptions</a>
+<ul>
+<li><a href="#audio-inputoutput-capture">Audio Input Capture</a></li>
+<li><a href="#audio-inputoutput-capture">Audio Output Capture</a></li>
+<li><a href="#blackmagic-device">Blackmagic Device</a></li>
+<li><a href="#browsersource">BrowserSource</a></li>
+<li><a href="#color-source">Color Source</a></li>
+<li><a href="#display-capture">Display Capture</a></li>
+<li><a href="#game-capture">Game Capture</a></li>
+<li><a href="#image">Image</a></li>
+<li><a href="#image-slide-show">Image Slide Show</a></li>
+<li><a href="#intel-realsense-3d-camera-greenscreen">Intel® RealSense™ 3D Camera GreenScreen</a></li>
+<li><a href="#media-source">Media Source</a></li>
+<li><a href="#scene">Scene</a></li>
+<li><a href="#text-gdi">Text (GDI+)</a></li>
+<li><a href="#vlc-video-source">VLC Video Source</a></li>
+<li><a href="#video-capture-device">Video Capture Device</a></li>
+<li><a href="#window-capture">Window Capture</a></li>
+<li><a href="#deprecated-source">Deprecated Sources</a></li>
+</ul></li>
+</ul>
+<p><a id="scenes-and-sources-overview" class="anchor" aria-hidden="true"></a></p>
+<h2>Scenes and Sources Overview</h2>
+<p><img src="Source%20Types_files/yt6bmb9.png" alt="Scenes and Source"></p>
+<p>Scenes and Sources are the meat of OBS Studio. These are where you 
+set up your stream layout, add your games, webcams, and any other 
+devices or media that you want in the output.</p>
+<p>Right click in the box under Scenes (or use the plus at the bottom) 
+to add a scene if there are none listed yet. You can create as many 
+Scenes as you want, and name them to easily distinguish between them. 
+For example: Welcome, Desktop, Game, Break, End. The arrow buttons can 
+be used to change the order. As an important note, all Scenes and 
+Sources are global in OBS Studio, so they can not share a name. This 
+means if you name a source Game, you can't have a Scene with the name  
+Game.</p>
+<p>Once you have created a Scene, right click in the Sources box (or use
+ the plus at the bottom) to add what ever you want to capture. Whether 
+it's a specific window, a capture card or game, image, text or your 
+entire display that you want to capture, there are several different 
+sources available in OBS Studio for you to choose from. Try them out!</p>
+<p><img src="Source%20Types_files/KfxiZIw.png" alt="Sources List"></p>
+<p>You can re-align sources in the preview and change their order by 
+using drag and drop in the list, or using the up and down arrow buttons.
+ A Source that is listed above another Source in the list will be on top
+ and might hide what's beneath it. This can also be useful for 
+situations where you want something on top of another source, like a 
+webcam to show over your game play. Any time you see an eye icon, you 
+can click it to show or hide the associated item with it (this applies 
+to filters as well)</p>
+<p>Visible: <img src="Source%20Types_files/cNmEq1a.png" alt="Visible"></p>
+<p>Hidden: <img src="Source%20Types_files/OfEFWOk.png" alt="Hidden"></p>
+<p>When a Source is selected in the Sources list, you will see a red box
+ that shows up around it. This is the bounding box, and can be used to 
+position sources within the preview as well as make the source larger or
+ smaller. </p>
+<p><img src="Source%20Types_files/CWJajXZ.png" alt="Source with bounding box"></p>
+<p>If you need to crop a source, hold the Alt key and drag the bounding 
+box. The edges will change to green to show it's being cropped. You can 
+see both techniques being used here to crop and enlarge only the part of
+ the screen we want to show:</p>
+<p><img src="Source%20Types_files/vcC5Qwa.png" alt="Cropped Source"></p>
+<p>If you later on change the <em>Base (Canvas) Resolution</em> of OBS Studio, you will have to re-align or re-size the sources. Changing the <em>Output (Scaled) Resolution</em> does not have this effect.</p>
+<p>The following Hotkeys are available in the preview to tweak the source position and size:</p>
+<ul>
+<li>Hold CTRL to disable Source/Edge snapping</li>
+<li>Hold ALT + drag the bounding box to crop</li>
+<li>CTRL+F for fit to Screen</li>
+<li>CTRL+S for stretch to Screen</li>
+<li>CTRL+D for center to Screen</li>
+<li>CTRL+R to reset a source size/position</li>
+</ul>
+<p>You can also right-click each source in the list to access further 
+options. This is where you access the Filters sub-menu, which is 
+discussed in detail in our <a href="https://obsproject.com/wiki/Filters-Guide">Filters Guide</a>.</p>
+<p><img src="Source%20Types_files/yObl7n4.png" alt="Right Click Menu"></p>
+<p>Edit Transform menu: </p>
+<p><img src="Source%20Types_files/ESWUP10.png" alt="Transform Menu"></p>
+<p><a id="source-descriptions" class="anchor" aria-hidden="true"></a></p>
+<h2>Source Descriptions</h2>
+<p><a id="audio-inputoutput-capture" class="anchor" aria-hidden="true"></a></p>
+<h3>Audio Input/Output Capture</h3>
+<p><strong>WARNING</strong>: Audio Input/Output Capture source can cause
+ an echo effect if you have the same device selected in Settings -&gt; 
+Audio. If you plan on adding audio devices directly to your scenes, make
+ sure they are disabled globally first.</p>
+<p>This source allows you to add an audio input or output device (i.e. 
+microphone or headset repsectively) to a specific scene. Simply pick the
+ device you wish to capture, and the audio from that device will be 
+captured when the source is active. These sources can be useful if you 
+only want specific audio devices active in specific scenes, rather than 
+globally through all of OBS.</p>
+<hr>
+<p><a id="blackmagic-device" class="anchor" aria-hidden="true"></a></p>
+<h3>Blackmagic Device</h3>
+<p>The Blackmagic Device source allows you to add a variety of 
+Blackmagic Design capture cards, using their provided developer SDK to 
+ensure the best possible compatibility. </p>
+<p>Blackmage Device source has the following options:</p>
+<ul>
+<li>Device: Dropdown list that allows you to select the Blackmage Design device you wish to use.</li>
+<li>Mode: Sets the video mode of the device. This should match your 
+media (i.e. camera or game console) output resolution and framerate.</li>
+<li>Format: Selects the video format the device runs in. This should also match your media output you wish to capture.</li>
+<li>Use Buffering (Checkbox): Enables or disables the use of buffering 
+on the video/audio for the device. This can help with issues on systems 
+with low resources available or a device with bad drivers/other hardware
+ issues.</li>
+</ul>
+<hr>
+<p><a id="browsersource" class="anchor" aria-hidden="true"></a></p>
+<h3>BrowserSource</h3>
+<p>Browser source is one of the most versatile sources available in OBS.
+ It is, quite literally, a web browser that you can add directly to OBS.
+ This allows you to perform all sorts of custom layout, image, video, 
+and even audio tasks. Anything that you can program to run in a normal 
+browser (within reason, of course), can be added directly to OBS.</p>
+<p>Browser Source is fairly straight forward with its options.</p>
+<ul>
+<li>Local File (Checkbox): Tells the source if you are loading a web page from your local machine, or remotely.</li>
+<li>Width: Sets the viewport width of the browser page.</li>
+<li>Height: Sets the viewport height of the browser page.</li>
+<li>FPS: Sets the FPS the browser page will render at.</li>
+<li>CSS: By default, sets the background to be transparent, removes 
+margins on the body, and hides the scroll bar (if the page renders 
+larger than your viewport width/height)
+<ul>
+<li><strong>Default CSS</strong>: body { background-color: rgba(0, 0, 0, 0); margin: 0px auto; overflow: hidden; }</li>
+</ul></li>
+<li>Shutdown source when not visible (Checkbox): Unloads the page when 
+the source is no longer visible (by clicking the eye icon to hide, or 
+not in the active scene).</li>
+<li>Refresh browser source when scene becomes active (Checkbox): Refresh the page when it becomes active (scene is switched to)</li>
+<li>Refresh cache of current page (Button): CLicking this will immediately refresh the page and reload any content.</li>
+</ul>
+<p>As Browser Source is based on CEF, any CEF flags (--enable-gpu for 
+example) can be passed from the OBS Studio shortcut. A fairly 
+comprehensive list can be found <a href="http://peter.sh/experiments/chromium-command-line-switches/">here</a></p>
+<hr>
+<p><a id="color-source" class="anchor" aria-hidden="true"></a></p>
+<h3>Color Source</h3>
+<p>As the name implies, this source creates a solid color for you to add
+ to your scene. This can be used for things like background colors or 
+even a global color tint by using the alpha channel.</p>
+<p>Color Source has the following options:</p>
+<ul>
+<li>Color: Allows you to set the color the source will display. This is also where you set any desired alpha.</li>
+<li>Width/Height: This allows you to set the resolution of the source. 
+The primary point of changing this would be to set an aspect ratio that 
+matches your canvas display.</li>
+</ul>
+<hr>
+<p><a id="display-capture" class="anchor" aria-hidden="true"></a></p>
+<h3>Display Capture</h3>
+<p>Display Capture is used to capture your entire monitor. The options 
+here are few, with a selection for the display you wish to capture, and a
+ checkbox to enable or disable showing of your cursor.</p>
+<p>You can only add one display capture source per display. If you need 
+your display in multiple scenes, make sure you use Add Existing!</p>
+<hr>
+<p><a id="game-capture" class="anchor" aria-hidden="true"></a></p>
+<h3>Game Capture</h3>
+<p>Game Capture is one of the primary sources that many users will be 
+looking to use. This Source lets you directly capture the game you are 
+playing, so long as it's DirectX or OpenGL. Game Capture is the most 
+efficient way you can add your games to OBS, and should always be tried 
+first. There are only a very small number of games that do not work with
+ Game Capture. If you have issues with it and cannot solve them on your 
+own, stop by the <a href="https://obsproject.com/chat">support chat</a>!</p>
+<p>Once you add your Game Capture Source, you will need to select a few options that suit your current needs. First is the Mode.</p>
+<ul>
+<li>Capture any fullscreen application</li>
+<li>Capture specific window</li>
+<li>Capture foreground window with hotkey</li>
+</ul>
+<p>The first option, <strong>capture any fullscreen application</strong>,
+ will automatically detect any game running fullscreen on your primary 
+monitor, and add the video output to the Game Capture source in OBS. If 
+you play your games fullscreen, this is the option you should choose. 
+Note that if you only have a single monitor, alt+tabbing out of the game
+ to check OBS will cause the game to stop rendering, so you won't see it
+ show up in the OBS preview.</p>
+<p>The second option, <strong>capture specific window</strong>, allows 
+you to simply select the active game you want to capture. Window Match 
+Priority lets you select which parameters will be used to separate the 
+available windows. For example, if you have two clients of the same game
+ running with the same executable name, but different window titles, 
+changing the Window Match Priority to Window Title can be very helpful 
+in selecting the proper game to be captured. Experiment if you have 
+issues selecting the right game and see which works best for you.</p>
+<p>The final option, <strong>capture foreground window with hotkey</strong>,
+ lets you set a specific key to tell the Game Capture source which game 
+you want to show up. This is very useful if you change games often 
+during a stream, and you don't want to have to go back into the Game 
+Capture properties every time to select your new game. The hotkey can be
+ set under Settings -&gt; Hotkeys once the Game Capture source is added 
+to your scene.</p>
+<p>There are several other options, and we'll give a short description 
+of them. In general, the default options are sufficient for most 
+applications and you should not change them unless you know why you need
+ to, and understand what they mean. As always, if you have any 
+questions, please stop by the forums or chat.</p>
+<ul>
+<li>Multi-adapter Compatibility: Used for systems that have multiple 
+GPUs (such as a laptop). It changes the capture method from shared 
+texture capture to memory capture. Memory capture is <strong><em>far less efficient</em></strong> than shared texture capture, and this option should only be enabled if you have no other options.</li>
+<li>Force Scaling: Allows you to force a scale on the capture source.</li>
+<li>Limit capture framerate: Limits the Game Capture source from capturing at a frame rate higher than OBS it set to use.</li>
+<li>Capture Cursor: As implied, this will either show or hide the mouse 
+cursor in your game. Does not apply to mouse cursors rendered in the 
+game itself, those will always be captured.</li>
+<li>Use anti-cheat compatibility hook: </li>
+<li>Capture third-party overlays (such as steam): If your game has an 
+overlay that doesn't conflict with Game Capture, this will allow Game 
+Capture to capture it as well.</li>
+</ul>
+<hr>
+<p><a id="image" class="anchor" aria-hidden="true"></a></p>
+<h3>Image</h3>
+<p>This source allows you to various image types to your scene. Most 
+image formats are supported. Alpha channel support is also available 
+where applicable.</p>
+<p>The only options in Image Source are the path to the image, and 
+unload image when not showing. This checkbox will unload the image from 
+memory while it is not active, which can be useful if you have a large 
+amount of images and few system resources available.</p>
+<p>Image Source supports the following image formats: .bmp, .tga, .png, .jpeg, .jpg, and .gif.</p>
+<hr>
+<p><a id="image-slide-show" class="anchor" aria-hidden="true"></a></p>
+<h3>Image Slide Show</h3>
+<p>The Image Slide Show Source allows you to add multiple images that 
+will rotate through as a slide show. To use this source, click the + 
+sign to add either individual files or directories to be loaded. Once 
+you have all the images you want, you can configure how you want them to
+ display.</p>
+<ul>
+<li>Transition: This drop down box allows you to select the animation 
+type that will play during a transition between files. The default is a 
+simple fade, but it can be changed to a cut, slide, or swipe</li>
+<li>Time Between Slides (milliseconds): As the name implies, the time 
+each image will be displayed before initiating a transition to the next.</li>
+<li>Transition Speed (milliseconds): This is how fast the transition 
+animation will take to go from starting to completely changed to the 
+next image.
+<ul>
+<li><strong>NOTE:</strong> This value <strong><em>does not</em></strong>
+ increase the time between slides. For example, if you have the Time 
+Between Slides set to 10000ms, and the Transition Speed set to 2000ms, 
+the transition will BEGIN at 8000ms from the end of the last transition,
+ with the next slide being fully visible at 10000ms. If this value is 
+HIGHER than the Time Between Slides, it will automatically reduce the 
+time to match. It also cannot be lower than 50ms.</li>
+</ul></li>
+<li>Randomize Playback (checkbox): This option will let you choose if 
+you want to randomize the images being played. If this is enabled, the 
+next image will be randomized at each transition. If disabled, they will
+ be shown in the order of the file list.</li>
+</ul>
+<p>Image Slide Show Source supports the following image formats: .bmp, .tga, .png, .jpeg, .jpg, and .gif.</p>
+<hr>
+<p><a id="intel-realsense-3d-camera-greenscreen" class="anchor" aria-hidden="true"></a></p>
+<h3>Intel® RealSense™ 3D Camera GreenScreen</h3>
+<p>This source type will allow you to use the digital green screen 
+features of an Intel RealSense camera. RealSense cameras have a 
+combination of a normal camera, infrared lasers, and an infrared camera 
+to map the space in front of your PC and detect which parts of the video
+ can be removed in a green screen effect. There is no configuration 
+necessary for this source, simply add the source, pick your camera, and 
+watch the magic!</p>
+<hr>
+<p><a id="media-source" class="anchor" aria-hidden="true"></a></p>
+<h3>Media Source</h3>
+<p>Media source is a great option to add all sorts of different media types to your stream. The currently supported file types are:</p>
+<ul>
+<li>Video: .mp4, .ts, .mov, .flv, .mkv, .avi, .gif, .webm</li>
+<li>Audio: .mp3, .aac, .ogg, .wav</li>
+</ul>
+<p>Simple click the Browse button to select your file, or uncheck the 
+"Local file" box to allow a URL or other remote location to be added. 
+For remote files, the URL/path goes in Input, and generally Input Format
+ can be left blank.</p>
+<p>Once the file has been selected, there are only a few options that would need to be looked at.</p>
+<ul>
+<li>Loop: Sets if the file will loop back to the beginning once playback has completed. Useful for .gifs</li>
+<li>Restart playback when source becomes active: This will allow you to 
+set the file to restart once the source is active. Active means in the 
+current visible scene</li>
+<li>Use hardware decoding when available: Fairly self explanatory!</li>
+<li>Hide source when playback ends: If enabled, the source will 
+automatically hide itself when the file has completed playback. Useful 
+for video files so they do not show the last frame indefinitely.</li>
+<li>Advanced: These options should only be access by users who 
+understand what they are, and why they need them, so they will not be 
+covered in this guide.</li>
+</ul>
+<hr>
+<p><a id="scene" class="anchor" aria-hidden="true"></a></p>
+<h3>Scene</h3>
+<p>This Source is often overlooked, and while one of the simplest in 
+function, it can allow for some of the most powerful functionality in 
+OBS Studio. Since all Scenes are considered Sources, you can add an 
+entire Scene as a Source anywhere you want. </p>
+<p>For example, this can allow you to create a static overlay that you 
+want to use in every Scene, called Overlay. In several other scenes, 
+let's say Main and Game, you can add the Overlay Scene. If any changes 
+are necessary to any of the Sources in Overlay, you can just update them
+ it will be updated everywhere else. This is just one of many examples 
+on how this Source type can be used!</p>
+<hr>
+<p><a id="text-gdi" class="anchor" aria-hidden="true"></a></p>
+<h3>Text (GDI+)</h3>
+<p>Text source can allow you to add simple text renders to your stream 
+or recording layout. To get going, most of the default settings will be 
+fine (except maybe the colors), and you can just type what you want your
+ text to say in the field labeled "Text."</p>
+<p>If you want to load the text from a file, simple check the "Read from
+ file" checkbox, and select the file that has the text you want to read 
+in it. The file must be UTF-8 (most default text files will be), and the
+ file will be reloaded on save. This means you can edit the file and it 
+will automatically update.</p>
+<p>Once the text is present, there are quite a few options for styling it. You can:</p>
+<ul>
+<li>Change the foreground color</li>
+<li>Change the background color</li>
+<li>Add a gradient</li>
+<li>Adjust the opacity (transparency/alpha)</li>
+<li>Set the horizontal and vertical align (relative to the red source bounding box)</li>
+<li>Add an outline (with options for size, color, and opacity)</li>
+<li>Use custom text extents for the size of the source, as well as if the text should wrap if the width is exceeded.</li>
+</ul>
+<hr>
+<p><a id="vlc-video-source" class="anchor" aria-hidden="true"></a></p>
+<h3>VLC Video Source</h3>
+<p>Similar to Media Source, you can add video and other media files to 
+this source to be played in your scenes. This source type will use the 
+VLC libraries for extended media support over the built-in Media Source.
+ It requires that VLC be installed on your system to show up as an 
+available source in OBS. If you are using 64bit OBS, you must install 
+64bit VLC and if you are using 32bit OBS, you must install 32bit VLC.</p>
+<p>To add files, click the + sign to browse to your file, directory, or 
+URL that you wish to add. If you add multiple, they will be played in 
+the order they were added. If Loop playlist is checked, the playlist 
+will start over once the end is reached.</p>
+<p>The Visibility behavior drop down menu allows you to choose how 
+visibility affects playback of the files. They should be 
+self-explanatory.</p>
+<hr>
+<p><a id="video-capture-device" class="anchor" aria-hidden="true"></a></p>
+<h3>Video Capture Device</h3>
+<p>The Video Capture Device Source allows you to add a variety of video 
+devices, including but not limited to webcams and capture cards. On 
+Windows, for a device to work with OBS the drivers needs to support 
+DirectShow output. Since DirectShow is the standard output format for 
+Windows, there's a good chance that this is what your device outputs. 
+All major webcams and capture cards support DirectShow and will work 
+with OBS.</p>
+<p>To add your device, simply add the Source, open the properties and select your device from the Device drop down list.</p>
+<p>You then have several options to configure it:</p>
+<ul>
+<li>Deactivate/Active (Button): Clicking this will either turn your 
+device off (when it reads Deactivate) or on (when it reads Activate).</li>
+<li>Configure Video (Button): This button will open any driver 
+configuration utilities. For example, with a Logitech webcam it will 
+open the Logitech camera configuration software for enabling custom 
+options like facial tracking. With a capture card, it might open the 
+options to configure the input resolution and FPS.</li>
+<li>Configure Crossbar (Button): Opens the device's Crossbar 
+Configuration, if available. Consult your device's manual for more 
+information.</li>
+<li>Resolution/FPS Type: Most of the time this can be left on Device 
+Default. If you are having issues with your device showing up, change it
+ to custom and the following options become available to set manually:
+<ul>
+<li>Resolution: This sets the base resolution for the video device. Make sure it's a mode that your device supports!</li>
+<li>FPS: Sets the FPS of the device.</li>
+<li>Video Format: If your device supports multiple video output formats 
+(Such as MJPEG or XRGB), you can select the preferred format here.</li>
+</ul></li>
+<li>YUV Color Space: Sets the color space the device will output in.</li>
+<li>YUV Color range: Sets the color range the device will output in.</li>
+<li>Buffering: This has three different modes, Enable, Disable, and 
+Auto-Detect. Enable will turn buffering on, which can help if you are 
+getting stuttering during playback. Setting to Disable will turn 
+buffering off, which can help if you are experiencing a delay on the 
+device. Auto-Detect is recommended, as it will attempt to ask the device
+ which method is preferred.</li>
+<li>Flip Vertically (Checkbox): Flips the video image vertically. Some devices will (rarely) send the video input upside down.</li>
+<li>Audio Output Mode: You can set to Capture Only (meaning you will not
+ hear, without Audio Monitoring), or Output desktop audio 
+(DirectSound/WaveOut). Enabling desktop output will send the device's 
+audio out through your system default device.</li>
+<li>Use custom audio device (Checkbox): When enabled, the Audio Device 
+selection becomes available, and allows you to use a separate audio 
+device that will be linked to your video device. This can be useful if 
+you want to use an external microphone on a webcam, for instance, and 
+want to tie the audio directly to the Source itself.</li>
+</ul>
+<hr>
+<p><a id="window-capture" class="anchor" aria-hidden="true"></a></p>
+<h3>Window Capture</h3>
+<p>Window Capture allows you to capture a specific window and its 
+contents. The advantages to using this source over Display Capture is 
+that only the selected window will be shown, even if there are other 
+windows in front of it (<strong>WIN7 NOTE</strong>: Having Aero disabled can interfere with this functionality.).</p>
+<hr>
+<p><a id="deprecated-sources" class="anchor" aria-hidden="true"></a></p>
+<h3>Deprecated Sources</h3>
+<p>List of currently deprecated sources. Sources listed here should not 
+be used unless aboslutely necessary, and are only left in for backwards 
+compatibility reasons.</p>
+<ul>
+<li>Text (FreeType2)</li>
+</ul>		
+		&nbsp;
+      
+    </div>
+	
+	<div class="grid_3 wiki_sidebar">
+	
+		<h1><a href="https://obsproject.com/wiki/">Home</a></h1>
+<h1>Guides</h1>
+<ul>
+<li><a href="https://obsproject.com/wiki/System-Requirements">System Requirements</a></li>
+<li><a href="https://obsproject.com/wiki/OBS-Studio-Quickstart">Quickstart Guide</a></li>
+<li><a href="https://obsproject.com/wiki/OBS-Studio-Overview">Overview Guide</a></li>
+<li><a href="https://obsproject.com/wiki/Sources-Guide">Sources Guide</a></li>
+<li><a href="https://obsproject.com/wiki/Filters-Guide">Filters Guide</a></li>
+<li><a href="https://obsproject.com/wiki/Keyboard-Shortcuts">Keyboard Shortcuts</a></li>
+<li><a href="https://obsproject.com/wiki/Surround-Sound-Streaming-And-Recording">Surround Sound Streaming and Recording</a></li>
+<li><a href="https://obsproject.com/wiki/Understanding-The-Mixer">Understanding the Mixer</a></li>
+<li><a href="https://obsproject.com/wiki/Troubleshooting-Guides">Troubleshooting Guides</a>
+<ul>
+<li><a href="https://obsproject.com/wiki/Dropped-Frames-and-General-Connection-Issues">Dropped Frames</a></li>
+<li><a href="https://obsproject.com/wiki/Stream-Buffering-Issues">Buffering</a></li>
+<li><a href="https://obsproject.com/wiki/Laptop-Performance-Issues">Laptop performance/black screen</a></li>
+<li><a href="https://obsproject.com/wiki/General-Performance-and-Encoding-Issues">Performance and Encoding Issues</a></li>
+</ul></li>
+</ul>
+<h1><a href="https://obsproject.com/wiki/install-instructions">Install Instructions</a></h1>
+<ul>
+<li><a href="https://obsproject.com/wiki/install-instructions#windows">Windows</a>
+<ul>
+<li><a href="https://obsproject.com/wiki/install-instructions#windows-install-directions">Install</a></li>
+<li><a href="https://obsproject.com/wiki/install-instructions#windows-build-directions">Build from source</a></li>
+</ul></li>
+<li><a href="https://obsproject.com/wiki/install-instructions#macos">macOS</a>
+<ul>
+<li><a href="https://obsproject.com/wiki/install-instructions#macos-install-directions">Install</a></li>
+<li><a href="https://obsproject.com/wiki/install-instructions#macos-build-directions">Build from source</a></li>
+</ul></li>
+<li><a href="https://obsproject.com/wiki/install-instructions#linux">Linux</a>
+<ul>
+<li><a href="https://obsproject.com/wiki/install-instructions#linux-install-directions">Install Directions</a>
+<ul>
+<li><a href="https://obsproject.com/wiki/install-instructions#ubuntu-installation">Ubuntu (14.04+)</a></li>
+<li><a href="https://obsproject.com/wiki/install-instructions#arch-linux-installation-unofficial">Arch Linux</a></li>
+<li><a href="https://obsproject.com/wiki/install-instructions#manjaro-installation-unofficial">Manjaro</a></li>
+<li><a href="https://obsproject.com/wiki/install-instructions#fedora-installation-unofficial">Fedora</a></li>
+<li><a href="https://obsproject.com/wiki/install-instructions#opensuse-installation-unofficial">openSUSE</a></li>
+<li><a href="https://obsproject.com/wiki/install-instructions#gentoo-installation-unofficial">Gentoo</a></li>
+<li><a href="https://obsproject.com/wiki/install-instructions#nixos-installation-unofficial">NixOS</a></li>
+</ul></li>
+<li><a href="https://obsproject.com/wiki/install-instructions#linux-build-directions">Build Directions</a>
+<ul>
+<li><a href="https://obsproject.com/wiki/install-instructions#red-hatfedora-based-build-directions">Red Hat/Fedora-based</a></li>
+<li><a href="https://obsproject.com/wiki/install-instructions#debian-based-build-directions">Debian-based</a></li>
+<li><a href="https://obsproject.com/wiki/install-instructions#opensuse-build-directions">openSUSE</a></li>
+</ul></li>
+</ul></li>
+</ul>	
+	</div>
+
+  </div>
+
+  <div class="footer_push"></div>
+</div>
+<!-- End Wrapper -->
+  
+  <footer id="footer" class="footer cf">
+
+    <div class="copyright">
+      <p>© 2012-2018. OBS and OBS Studio are created and maintained by Jim. Development by <a href="https://github.com/jp9000/OBS-studio/graphs/contributors">OBS Studio Contributors</a>.<br>
+Website designed and created by <a href="https://twitter.com/Warchamp7">Warchamp7</a>, powered by <a href="https://getkirby.com/made-with-kirby-and-love">Kirby CMS</a></p>    </div>
+    <br>
+    <div class="languages">
+    <p>
+    </p>
+    </div>
+
+  </footer>
+<script src="Source%20Types_files/rules-p-c4R4Uj3EI2IsY.js" async=""></script><script src="Source%20Types_files/quant.js" async="" type="text/javascript"></script><script async="" src="Source%20Types_files/analytics.js"></script><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-34644124-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- Quantcast Tag -->
+<script>
+var _qevents = _qevents || [];
+
+(function() {
+var elem = document.createElement('script');
+elem.src = (document.location.protocol == "https:" ? "https://secure" : "http://edge") + ".quantserve.com/quant.js";
+elem.async = true;
+elem.type = "text/javascript";
+var scpt = document.getElementsByTagName('script')[0];
+scpt.parentNode.insertBefore(elem, scpt);
+})();
+
+_qevents.push({
+qacct:"p-c4R4Uj3EI2IsY"
+});
+</script>
+
+<noscript>
+<div style="display:none;">
+<img src="//pixel.quantserve.com/pixel/p-c4R4Uj3EI2IsY.gif" height="1" width="1" alt="">
+</div>
+</noscript>
+<!-- End Quantcast tag -->
+
+
+</body></html>
